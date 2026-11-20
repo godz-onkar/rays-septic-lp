@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ray's Septic Search Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#000321;--paper:#F3F3F7;--accent:#C93937;--line:rgba(0,3,33,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;padding:24px 28px 16px}
+h1{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:38px;letter-spacing:.01em;line-height:1;margin:0}
+.top p{margin:8px 0 0;font-size:14px;color:#555;max-width:700px;line-height:1.5}
+.top a{color:var(--ink)}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{border:0;background:transparent;font:600 14px Inter,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);color:#fff}
+.tabs button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select{font:600 14px Inter,sans-serif;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.stage{display:grid;grid-template-columns:1fr 430px;gap:28px;padding:8px 28px 40px;align-items:start}
+.stage.d{grid-template-columns:1fr}
+.stage.m{grid-template-columns:430px;justify-content:center}
+.stage.d .mob,.stage.m .desk{display:none}
+.label{font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#666;margin:0 0 10px}
+.dframe{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(0,3,33,.08)}
+.bar{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line);background:#fafafa}
+.bar i{width:9px;height:9px;border-radius:50%;background:#ddd}
+.dwrap{position:relative;overflow:hidden}
+.dwrap iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0}
+.phone{width:430px;background:#111;border-radius:48px;padding:20px;box-shadow:0 18px 50px rgba(0,3,33,.18)}
+.phone iframe{display:block;width:390px;height:844px;border:0;border-radius:30px;background:#fff}
+@media (max-width:1100px){.stage{grid-template-columns:1fr}.mob{justify-self:center}}
+@media (max-width:480px){.phone{width:100%;padding:10px;border-radius:30px}.phone iframe{width:100%}.stage{padding:8px 12px 32px}.top{padding:20px 16px 12px}}
+.notes{max-width:980px;margin:0 auto;padding:8px 28px 72px}
+.notes h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:30px;letter-spacing:.01em;margin:40px 0 6px}
+.notes h3{font-weight:700;font-size:17px;margin:28px 0 8px}
+.notes p,.notes li{font-size:15px;line-height:1.6;color:#333}
+.notes ol,.notes ul{padding-left:20px;margin:8px 0}
+.notes li{margin:4px 0}
+.notes li b{color:var(--ink)}
+.notes code{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+.notes .rule{border:0;border-top:1px solid var(--line);margin:40px 0 0}
+@media (max-width:480px){.notes{padding:8px 16px 56px}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div>
+    <h1>Ray’s Septic: Search landing page</h1>
+    <p>Draft for the 80/20 test against go.raysseptic.com/service. Desktop at 1440 and mobile at 390; scroll inside each frame. The mobile call bar appears once the hero call button scrolls away. The form isn’t connected in this preview. <a href="page.html" id="solo">Open the page on its own</a>.</p>
+  </div>
+  <div class="ctrls">
+    <label class="sr" for="grp" style="position:absolute;left:-999px">Ad group headline</label>
+    <select id="grp" aria-label="Ad group headline">
+      <option value="">Unified ad group (default)</option>
+      <option value="pumping">Pumping</option>
+      <option value="repair">Repair</option>
+      <option value="install">Installation</option>
+      <option value="inspection">Inspection</option>
+      <option value="emergency">Emergency</option>
+    </select>
+    <div class="tabs" role="tablist" aria-label="View">
+      <button class="on" data-v="" role="tab">Both</button><button data-v="d" role="tab">Desktop</button><button data-v="m" role="tab">Mobile</button>
+    </div>
+  </div>
+</div>
+<div class="stage" id="stage">
+  <div class="desk">
+    <p class="label">Desktop · 1440</p>
+    <div class="dframe"><div class="bar"><i></i><i></i><i></i></div><div class="dwrap" id="dwrap"><iframe id="dfr" src="page.html" title="Desktop layout"></iframe></div></div>
+  </div>
+  <div class="mob">
+    <p class="label">Mobile · 390</p>
+    <div class="phone"><iframe id="mfr" src="page.html" title="Mobile layout"></iframe></div>
+  </div>
+</div>
+
+<section class="notes">
+  <hr class="rule">
+  <h2>How the page is built</h2>
+  <p>One job: get a North Atlanta homeowner with a septic need to call. When you give feedback, name the section number.</p>
+  <ol>
+    <li><b>Header (sticky).</b> Logo left, tap-to-call number right with “7 days a week”.</li>
+    <li><b>Hero.</b> Headline matches the ad group (use the dropdown above to see each version). One call button, a callback link, then 4.9 stars from 242 Google reviews, based in Canton, 15+ years.</li>
+    <li><b>Sewage coming up a drain?</b> What to do right now, then call.</li>
+    <li><b>Signs your septic needs a visit.</b> Six warning signs in customers’ own words.</li>
+    <li><b>Services.</b> Pumping and cleaning, repair and installation as cards with the photos from Ray’s current page, plus inspections and emergency service.</li>
+    <li><b>What happens when you call.</b> Three steps and the “No hidden fees, no surprises” promise, backed by a customer quote.</li>
+    <li><b>Reviews.</b> Four real Google reviews, word for word, plus the HomeAdvisor / Angi / Thumbtack badges.</li>
+    <li><b>About.</b> Local septic company in Canton, 15+ years, the techs customers name most.</li>
+    <li><b>Where we work.</b> Towns grouped by Ray’s counties, with a map on desktop.</li>
+    <li><b>Common questions.</b> How often to pump, finding the tank, emergency service.</li>
+    <li><b>Closing.</b> Call button and a 4-field callback form with SMS consent.</li>
+    <li><b>Mobile call bar.</b> Fixed red “Call Ray’s now” bar on phones.</li>
+  </ol>
+  <h3>Before it goes live</h3>
+  <ul>
+    <li><b>Build in GHL</b> on go.raysseptic.com so it sits next to the current page.</li>
+    <li><b>Call tracking.</b> The current page swaps 770-224-8905 for 770-691-1477. The new page needs the same swap, or calls from the test arm won’t be counted.</li>
+    <li><b>Tags.</b> Google Ads AW-11387083320 and GA4 G-DNG1MY0BZV, the form conversion, and hidden gclid/UTM fields.</li>
+    <li><b>Ad-group headlines.</b> Set each ad group’s final URL suffix to <code>s=pumping</code>, <code>s=repair</code>, <code>s=install</code>, <code>s=inspection</code> or <code>s=emergency</code>. No suffix shows the default.</li>
+  </ul>
+</section>
+<script>
+const stage=document.getElementById('stage'),wrap=document.getElementById('dwrap'),dfr=document.getElementById('dfr'),mfr=document.getElementById('mfr'),grp=document.getElementById('grp'),solo=document.getElementById('solo');
+function fit(){const s=Math.min(1,wrap.clientWidth/1440);dfr.style.transform='scale('+s+')';wrap.style.height=(900*s)+'px';}
+function setView(v){
+  document.querySelectorAll('.tabs button').forEach(x=>{const on=x.dataset.v===v;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
+  stage.className='stage'+(v?' '+v:'');requestAnimationFrame(fit);
+}
+function setGroup(g){const src='page.html'+(g?'?s='+g:'');dfr.src=src;mfr.src=src;solo.href=src;}
+new ResizeObserver(fit).observe(wrap);fit();
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setView(b.dataset.v));
+grp.onchange=()=>setGroup(grp.value);
+const h=location.hash.replace('#','');setView(h==='desktop'?'d':h==='mobile'?'m':'');
+</script>
+</body>
+</html>
