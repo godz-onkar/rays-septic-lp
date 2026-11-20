@@ -308,7 +308,7 @@ p{margin:0}
     </div>
   </section>
 
-  <div class="wrap now-band" id="now" hidden>
+  <div class="wrap now-band" id="now">
     <div class="now">
       <svg class="ico"><use href="#i-tap"/></svg>
       <h2>Sewage coming up a drain?</h2>
@@ -526,7 +526,6 @@ p{margin:0}
   };
   var m=location.search.match(/[?&]s=(\w+)/), v=m&&V[m[1]];
   if(v){document.getElementById('h1').textContent=v[0];document.getElementById('sub').textContent=v[1];}
-  if(m&&(m[1]==='emergency'||m[1]==='repair')) document.getElementById('now').hidden=false;
 })();
 </script>
 </body>
