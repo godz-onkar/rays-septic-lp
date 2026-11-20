@@ -230,6 +230,25 @@ p{margin:0}
   .steps-photo,.about-photo{max-height:380px;aspect-ratio:16/10}
 }
 
+/* trust strip */
+.trust{background:var(--surface);border-bottom:1px solid var(--line)}
+.trust ul{list-style:none;margin:0 auto;padding-top:14px;padding-bottom:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.trust li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;font:700 14px/1.25 var(--body);color:var(--ink)}
+.trust .ico{width:22px;height:22px;color:var(--red);stroke-width:2.6}
+@media (min-width:900px){.trust ul{display:flex;justify-content:center;gap:56px;padding-top:20px;padding-bottom:20px}.trust li{flex-direction:row;gap:10px;font-size:17px}}
+.now-band[hidden]{display:none}
+@media (min-width:900px){.now-band + .trust{margin-top:28px}}
+/* reviews intro */
+.rev-intro{display:grid;gap:18px;margin-top:16px}
+.rev-intro p{color:var(--ink-2);max-width:62ch}
+.rev-photo{aspect-ratio:16/10}
+.rev-photo img{object-position:50% 40%}
+.rev-cta{margin-top:22px}
+@media (min-width:900px){.rev-photo{display:none}.rev-cta{display:inline-flex;min-width:340px;margin-left:32px}}
+/* faq signs list */
+.faq .signs{margin:8px 0 0;padding-left:20px}
+.faq .signs li{margin:3px 0}
+
 /* footer */
 @media (max-width:899px){.foot .wrap{padding-bottom:calc(26px + 84px)}}
 .foot{background:#000321;color:var(--on-dark);font-size:14.5px}
@@ -271,7 +290,7 @@ p{margin:0}
   <section class="hero" id="top">
     <div class="wrap">
       <div>
-        <p class="label">Same-day visits · 7 days a week</p>
+        <p class="label">Ray’s Septic Service · Canton, GA</p>
         <h1 id="h1">Septic pumping, cleaning and repair in North Atlanta</h1>
         <p class="sub" id="sub">Slow drains, a smell in the yard, or a tank nobody’s pumped in years? Call Ray’s. We’ll find the tank, take care of it, and show you what we found.</p>
         <a class="btn-call cta" id="hero-call" href="tel:+17702248905" data-pos="hero"><svg class="ico"><use href="#i-phone"/></svg>Call (770) 224-8905</a>
@@ -289,7 +308,7 @@ p{margin:0}
     </div>
   </section>
 
-  <div class="wrap now-band">
+  <div class="wrap now-band" id="now" hidden>
     <div class="now">
       <svg class="ico"><use href="#i-tap"/></svg>
       <h2>Sewage coming up a drain?</h2>
@@ -297,26 +316,13 @@ p{margin:0}
     </div>
   </div>
 
-  <section class="sec" id="signs" aria-labelledby="signs-h">
-    <div class="wrap svc-grid">
-      <div>
-        <h2 id="signs-h">Signs your septic needs a visit</h2>
-        <p class="lede">Any one of these is worth a call. Two or more, call today.</p>
-      </div>
-      <div>
-        <ul class="checks">
-          <li><svg class="ico"><use href="#i-check"/></svg>Drains slowing down all over the house</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Gurgling when you flush or run water</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>A sewage smell inside or out in the yard</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Soggy or extra-green grass over the tank or drain field</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Water backing up into a tub, shower or toilet</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>No pump-out in 3+ years, or no idea when the last one was</li>
-        </ul>
-        <a class="btn-call svc-cta" href="tel:+17702248905" data-pos="signs"><svg class="ico"><use href="#i-phone"/></svg>Call (770) 224-8905</a>
-      </div>
-    </div>
-  </section>
-
+  <div class="trust" aria-label="Why call Ray’s">
+    <ul class="wrap">
+      <li><svg class="ico"><use href="#i-check"/></svg>No hidden fees</li>
+      <li><svg class="ico"><use href="#i-check"/></svg>Same-day visits</li>
+      <li><svg class="ico"><use href="#i-check"/></svg>7 days a week</li>
+    </ul>
+  </div>
 
   <section class="sec svcs" id="services" aria-labelledby="svc-h">
     <div class="wrap">
@@ -344,32 +350,16 @@ p{margin:0}
     </div>
   </section>
 
-  <section class="sec how" id="how" aria-labelledby="how-h">
-    <div class="wrap steps-grid">
-      <div>
-        <h2 id="how-h">What happens when you call</h2>
-        <figure class="ph steps-photo"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_768/u_https://assets.cdn.filesafe.space/FWlbt0yfcdZ2Almg2XYK/media/671a9d07a18dfe33b61a999e.jpeg" alt="Two Ray's technicians probing the ground to find a customer's septic tank" width="768" height="768" loading="lazy"></figure>
-      </div>
-      <div>
-        <ol class="steps">
-          <li><span class="folio">01</span><h3>You get the soonest open slot.</h3><p>Seven days a week, with same-day visits available.</p></li>
-          <li><span class="folio">02</span><h3>We find the tank and do the work.</h3><p>We locate the lid, pump or repair the system and check that everything drains the way it should.</p></li>
-          <li><span class="folio">03</span><h3>You see what we found.</h3><p>Your tech walks you through it in plain English, including anything that needs attention next.</p></li>
-        </ol>
-        <div class="promise">
-          <h3>No hidden fees, no surprises</h3>
-          <p>That’s our promise, and it’s how customers describe us on Google: “Fair and honest pricing.”</p>
-        </div>
-        <a class="btn-call steps-cta" href="tel:+17702248905" data-pos="steps"><svg class="ico"><use href="#i-phone"/></svg>Call (770) 224-8905</a>
-      </div>
-    </div>
-  </section>
-
   <section class="sec reviews" id="reviews" aria-labelledby="rev-h">
+    <span id="about"></span>
     <div class="wrap">
       <div class="rev-head">
         <h2 id="rev-h">What your neighbors say</h2>
         <div class="rev-sum"><strong>4.9</strong><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span>242 Google reviews</span></div>
+      </div>
+      <div class="rev-intro">
+        <p>Ray’s Septic Service has looked after septic systems across North Atlanta for more than 15 years, from our base in Canton. Customers mention our techs by name: Tyler, Kyle, Koby and Hunter.</p>
+        <figure class="ph rev-photo"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_768/u_https://assets.cdn.filesafe.space/FWlbt0yfcdZ2Almg2XYK/media/671aa1b86da2f364462f1795.png" alt="The Ray's Septic Service crew with a company pump truck" width="768" height="768" loading="lazy"></figure>
       </div>
       <div class="rev-grid">
         <blockquote class="quote">
@@ -395,23 +385,37 @@ p{margin:0}
       </div>
       <figure class="badges"><img src="https://images.leadconnectorhq.com/image/f_webp/q_85/r_1200/u_https://assets.cdn.filesafe.space/FWlbt0yfcdZ2Almg2XYK/media/671afc1228f9aa5238900f5e.png" alt="HomeAdvisor Elite Service, Top Rated, Best of HomeAdvisor 2021, 100 Reviews and Screened and Approved badges, plus Angi and Thumbtack Professional" width="1200" height="246" loading="lazy"></figure>
       <a class="rev-link" href="https://www.google.com/maps?cid=16103792958827224180" target="_blank" rel="noopener">Read all 242 reviews on Google</a>
+      <a class="btn-call rev-cta" href="tel:+17702248905" data-pos="reviews"><svg class="ico"><use href="#i-phone"/></svg>Call (770) 224-8905</a>
     </div>
   </section>
 
-  <section class="sec why" id="about" aria-labelledby="about-h">
-    <div class="wrap why-grid">
-      <div class="about">
-        <h2 id="about-h">A local septic company, 15+ years in North Atlanta</h2>
-        <p>Ray’s Septic Service has looked after septic systems across North Atlanta for more than 15 years, from our base in Canton.</p>
-        <p>Customers mention our techs by name: Tyler, Kyle, Koby, Hunter. What they remember is that the crew showed up when promised, explained what they found, and treated the property with respect.</p>
-        <ul class="spec">
-          <li><b>Based in</b><span>Canton, GA 30114</span></li>
-          <li><b>Open</b><span>7 days a week</span></li>
-        </ul>
+  <section class="sec how" id="how" aria-labelledby="how-h">
+    <div class="wrap steps-grid">
+      <div>
+        <h2 id="how-h">What happens when you call</h2>
+        <figure class="ph steps-photo"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_768/u_https://assets.cdn.filesafe.space/FWlbt0yfcdZ2Almg2XYK/media/671a9d07a18dfe33b61a999e.jpeg" alt="Two Ray's technicians probing the ground to find a customer's septic tank" width="768" height="768" loading="lazy"></figure>
       </div>
-      <figure class="ph about-photo"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/FWlbt0yfcdZ2Almg2XYK/media/671aa1b86da2f364462f1795.png" alt="The Ray's Septic Service crew with a company pump truck" width="900" height="900" loading="lazy"></figure>
+      <div>
+        <ol class="steps">
+          <li><span class="folio">01</span><h3>You get the soonest open slot.</h3><p>Seven days a week, with same-day visits available.</p></li>
+          <li><span class="folio">02</span><h3>We find the tank and do the work.</h3><p>We locate the lid, pump or repair the system and check that everything drains the way it should.</p></li>
+          <li><span class="folio">03</span><h3>You see what we found.</h3><p>Your tech walks you through it in plain English, including anything that needs attention next.</p></li>
+        </ol>
+        <div class="promise">
+          <h3>No hidden fees, no surprises</h3>
+          <p>That’s our promise, and it’s how customers describe us on Google: “Fair and honest pricing.”</p>
+        </div>
+        <a class="btn-call steps-cta" href="tel:+17702248905" data-pos="steps"><svg class="ico"><use href="#i-phone"/></svg>Call (770) 224-8905</a>
+      </div>
     </div>
   </section>
+
+
+
+
+
+
+
 
   <section class="sec area" id="area" aria-labelledby="area-h">
     <div class="wrap area-grid">
@@ -434,6 +438,17 @@ p{margin:0}
     <div class="wrap">
       <div><h2 id="faq-h">Common questions</h2></div>
       <dl>
+        <dt>How do I know my septic needs attention?</dt>
+        <dd>Call if you notice any of these:
+          <ul class="signs">
+            <li>Drains slowing down all over the house</li>
+            <li>Gurgling when you flush or run water</li>
+            <li>A sewage smell inside or out in the yard</li>
+            <li>Soggy or extra-green grass over the tank or drain field</li>
+            <li>Water backing up into a tub, shower or toilet</li>
+            <li>No pump-out in 3+ years, or no idea when the last one was</li>
+          </ul>
+        </dd>
         <dt>How often should a septic tank be pumped?</dt>
         <dd>Most homes every 3 to 5 years. A smaller tank, a bigger household or a garbage disposal means sooner. If you don’t know when it was last done, it’s probably due.</dd>
         <dt>What if I don’t know where my tank is?</dt>
@@ -511,6 +526,7 @@ p{margin:0}
   };
   var m=location.search.match(/[?&]s=(\w+)/), v=m&&V[m[1]];
   if(v){document.getElementById('h1').textContent=v[0];document.getElementById('sub').textContent=v[1];}
+  if(m&&(m[1]==='emergency'||m[1]==='repair')) document.getElementById('now').hidden=false;
 })();
 </script>
 </body>
